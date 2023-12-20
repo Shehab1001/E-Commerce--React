@@ -1,29 +1,63 @@
 import react from 'react';
 import { Link } from 'react-router-dom';
-
+import image from '../../Assets/images/freshcart-logo.svg';
 
 export default function Navbar() {
     return <>
 
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-                <Link class="navbar-brand" to="/">
-                    <img src="" alt=""/>
+        <nav className="navbar navbar-expand-lg bg-body-tertiary">
+            <div className="container-fluid">
+                <Link className="navbar-brand" to="/">
+                    <img src={image} alt="freshcart logo"/>
                 </Link>
 
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+
+                <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+
+                        <li className="nav-item">
+                            <Link className="nav-link active" aria-current="page" to="/">Home</Link>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
+                        <li className="nav-item">
+                            <Link className="nav-link active" aria-current="page" to="/cart">Cart</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link active" aria-current="page" to="/products">Products</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link active" aria-current="page" to="/categories">Categories</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link active" aria-current="page" to="/brands">Brands</Link>
+                        </li>
+                      
+                    </ul>
+
+                    <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+                   
+                   <li className="nav-item d-flex align-items-center">
+                        <i className="fab fa-instagram mx-2"></i>
+                        <i className="fab fa-facebook mx-2"></i>
+                        <i className="fab fa-twitter mx-2"></i>
+                        <i className="fab fa-tiktok mx-2"></i>
+                        <i className="fab fa-youtube mx-2"></i>
+
+                   </li>
+                    <li className="nav-item">
+                            <Link className="nav-link active" aria-current="page">Logout</Link>
                         </li>
 
+                        <li className="nav-item">
+                            <Link className="nav-link active" aria-current="page" to="/login">Login</Link>
+                        </li>
+
+                        <li className="nav-item">
+                            <Link className="nav-link active" aria-current="page" to="/register">Register</Link>
+                        </li>            
                     </ul>
                 </div>
             </div>
