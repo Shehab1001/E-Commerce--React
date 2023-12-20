@@ -6,7 +6,7 @@ export default function Navbar() {
     return <>
 
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
-            <div className="container-fluid">
+            <div className="container">
                 <Link className="navbar-brand" to="/">
                     <img src={image} alt="freshcart logo"/>
                 </Link>
@@ -48,7 +48,7 @@ export default function Navbar() {
 
                    </li>
                     <li className="nav-item">
-                            <Link className="nav-link active" aria-current="page">Logout</Link>
+                            <Link className="nav-link active" aria-current="page">LogOut</Link>
                         </li>
 
                         <li className="nav-item">
