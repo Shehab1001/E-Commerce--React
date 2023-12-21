@@ -15,14 +15,14 @@ export default function Login() {
 
     async function submitRegister(values) {
         setLoading(true);
-        let { data } = await axios.post(`https://route-ecommerce.onrender.com/api/v1/auth/login`, values)
+        let { data } = await axios.post(`https://route-ecommerce.onrender.com/api/v1/auth/signin`, values)
             .catch((err) => {
                 setLoading(false);
                 setError(err.response.data.message)
             })
         if (data.message === 'success') {
             setLoading(false);
-            navigate('/login');
+            navigate('/');
         }
     }
 
@@ -58,17 +58,10 @@ export default function Login() {
                 <input className='form-control' name='email' value={formik.values.email} id='email' onChange={formik.handleChange} onBlur={formik.handleBlur} />
                 {formik.errors.email && formik.touched.email ? <div className='alert alert-danger p-2 mt-2'>{formik.errors.email}</div> : ''}
 
-                <label htmlFor="phone">phone:</label>
-                <input className='form-control' name='phone' value={formik.values.phone} id='phone' onChange={formik.handleChange} onBlur={formik.handleBlur} />
-                {formik.errors.phone && formik.touched.phone ? <div className='alert alert-danger p-2 mt-2'>{formik.errors.phone}</div> : ''}
-
                 <label htmlFor="password">password:</label>
                 <input className='form-control' name='password' value={formik.values.password} id='password' onChange={formik.handleChange} onBlur={formik.handleBlur} />
                 {formik.errors.password && formik.touched.password ? <div className='alert alert-danger p-2 mt-2'>{formik.errors.password}</div> : ''}
 
-                <label htmlFor="rePassword">rePassword:</label>
-                <input className='form-control' name='rePassword' value={formik.values.rePassword} id='rePassword' onChange={formik.handleChange} onBlur={formik.handleBlur} />
-                {formik.errors.rePassword && formik.touched.rePassword ? <div className='alert alert-danger p-2 mt-2'>{formik.errors.rePassword}</div> : ''}
 
                 {isLoading ?
                     <button type='button' className='btn bg-main text-white mt-2'>
@@ -81,7 +74,7 @@ export default function Login() {
                             wrapperStyle
                             wrapperClass
                         />
-                    </button> : <button type='submit' disabled={!(formik.isValid && formik.dirty)} className='btn bg-main text-white mt-2'>Register</button>}
+                    </button> : <button type='submit' disabled={!(formik.isValid && formik.dirty)} className='btn bg-main text-white mt-2'>Login</button>}
 
 
             </form>
