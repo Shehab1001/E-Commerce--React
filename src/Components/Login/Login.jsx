@@ -1,15 +1,15 @@
 import axios, { Axios } from 'axios';
 import { Formik, useFormik } from 'formik';
 import Style from './Login.module.css'
-import react, { useState } from 'react';
+import react, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
 import { Audio } from 'react-loader-spinner'
-
+import { userContext } from '../Context/userContext';
 
 export default function Login() {
 
-
+    let {setUserToken} = useContext(userContext);
     const [error, setError] = useState(null);
     const [isLoading, setLoading] = useState(false);
     let navigate = useNavigate();
@@ -24,7 +24,7 @@ export default function Login() {
         if (data.message === 'success') {
             setLoading(false);
             localStorage.setItem('userToken', data.token);
-            
+            setUserToken(data.token);
             navigate('/');
         }
     }

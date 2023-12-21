@@ -5,9 +5,13 @@ import './index.css';
 import App from './App';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'
+import userContextProvider from './Components/Context/userContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <App />
+    <userContextProvider>
+        <App />
+    </userContextProvider>
+
 );
 
