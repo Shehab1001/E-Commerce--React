@@ -5,11 +5,11 @@ import react, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
 import { Audio } from 'react-loader-spinner'
-import { userContext } from '../Context/userContext';
+import { UserContext } from '../Context/UserContext';
 
 export default function Login() {
 
-    let {setUserToken} = useContext(userContext);
+    let {setUserToken} = useContext(UserContext);
     const [error, setError] = useState(null);
     const [isLoading, setLoading] = useState(false);
     let navigate = useNavigate();
@@ -21,7 +21,8 @@ export default function Login() {
                 setLoading(false);
                 setError(err.response.data.message)
             })
-        if (data.message === 'success') {
+        
+            if (data.message === 'success') {
             setLoading(false);
             localStorage.setItem('userToken', data.token);
             setUserToken(data.token);
