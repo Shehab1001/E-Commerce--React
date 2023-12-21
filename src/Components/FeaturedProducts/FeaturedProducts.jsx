@@ -2,6 +2,7 @@ import axios, { Axios } from 'axios';
 import react, { useEffect, useState } from 'react';
 import { Circles } from 'react-loader-spinner';
 import { useQuery } from 'react-query';
+import { Link } from 'react-router-dom';
 
 export default function FeaturedProducts() {
 
@@ -14,11 +15,11 @@ export default function FeaturedProducts() {
         // cacheTime: 3000,
         // refetchOnMount: false,
         // staleTime: 30000,
-        refetchInterval: 5000,
-        enabled: false
+        // refetchInterval: 5000,
+        // enabled: false
     })
-    console.log('isLoading',isLoading);
-    console.log('isFetched',isFetched);
+    // console.log('isLoading',isLoading);
+    // console.log('isFetched',isFetched);
     
     // let [products, setProducts] = useState([]);
     // let [isLoading, setLoading] = useState(true);
@@ -37,8 +38,8 @@ export default function FeaturedProducts() {
 
     return <>
         <div className="container py-5">
-        <h2>Featured Product</h2>
-        <button onClick={()=>refetch()} className='btn bg-main text-white w-100 mb-5 mt-3'>Get Products</button>
+        <h2 className='mb-3'>Featured Product</h2>
+        {/* <button onClick={()=>refetch()} className='btn bg-main text-white w-100 mb-5 mt-3'>Get Products</button> */}
             {isLoading ?
                 <div className="d-flex align-items-center justify-content-center">
                     <Circles
@@ -54,6 +55,7 @@ export default function FeaturedProducts() {
                
                 : <div className="row">
                     {data?.data.data.map((product) => <div key={product.id} className="col-md-2">
+                        <Link to={`/productdetails/${product.id}`}>
                         <div className="product p-3">
                             <img src={product.imageCover} className='w-100' alt="" />
                             <p className='text-main'>Category</p>
@@ -67,6 +69,8 @@ export default function FeaturedProducts() {
                             </div>
                             <button className='btn bg-main text-white w-100'>Add to cart</button>
                         </div>
+                        </Link>
+                      
 
                     </div>
 

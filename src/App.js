@@ -12,6 +12,7 @@ import NotFound from './Components/NotFound/NotFound'
 import Categories from './Components/Categories/Categories'
 import { UserContext } from "./Components/Context/UserContext";
 import ProtectedRouter from "./Components/protectedRouter/protectedRouter";
+import ProductDetails from "./Components/ProductDetails/ProductDetails";
 
 
 export default function App() {
@@ -27,6 +28,7 @@ export default function App() {
         { path: 'categories', element:  <ProtectedRouter><Categories /> </ProtectedRouter> },
         { path: 'products', element:  <ProtectedRouter><Products /> </ProtectedRouter> },
         { path: 'brands', element:  <ProtectedRouter><Brands /> </ProtectedRouter> },
+        { path: 'productdetails/:id', element:  <ProtectedRouter><ProductDetails /> </ProtectedRouter> },
         { path: '*', element: <NotFound /> }
 
       ]
