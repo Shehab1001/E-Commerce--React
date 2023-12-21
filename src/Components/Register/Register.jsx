@@ -1,4 +1,5 @@
 import axios, { Axios } from 'axios';
+import Style from './Register.module.css'
 import { Formik, useFormik } from 'formik';
 import react, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -48,16 +49,7 @@ export default function Register() {
     // }
 
 
-    let phoneRegex = /^\+\d{1,3}\d{5,9}$/
-    let emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
-    let passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])/
-    let validationSchema = Yup.object({
-        name: Yup.string().min(3, 'name minlength is 3').max(11, 'name maxlength is 11').required('name is required'),
-        email: Yup.string().matches(emailRegex, ' email is invaild').required('email is required'),
-        phone: Yup.string().matches(phoneRegex, 'phone is invalid').required('phone is required'),
-        password: Yup.string().matches(passwordRegex, 'Password must contain at least one lowercase letter, one uppercase letter, and one special character').min(8, 'Password must be at least 8 characters long').required('Password is required'),
-        rePassword: Yup.string().oneOf([Yup.ref('password')], 'Passwords must match').required('Confirm Password is required')
-    });
+
 
     const [error, setError] = useState(null);
     const [isLoading, setLoading] = useState(false);
@@ -76,6 +68,17 @@ export default function Register() {
         }
     }
 
+
+    let phoneRegex = /^\+\d{1,3}\d{5,9}$/
+    let emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+    let passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])/
+    let validationSchema = Yup.object({
+        name: Yup.string().min(3, 'name minlength is 3').max(11, 'name maxlength is 11').required('name is required'),
+        email: Yup.string().matches(emailRegex, ' email is invaild').required('email is required'),
+        phone: Yup.string().matches(phoneRegex, 'phone is invalid').required('phone is required'),
+        password: Yup.string().matches(passwordRegex, 'Password must contain at least one lowercase letter, one uppercase letter, and one special character').min(8, 'Password must be at least 8 characters long').required('Password is required'),
+        rePassword: Yup.string().oneOf([Yup.ref('password')], 'Passwords must match').required('Confirm Password is required')
+    });
     let formik = useFormik({
         initialValues: {
             name: '',
