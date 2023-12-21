@@ -5,19 +5,19 @@ import { Circles } from 'react-loader-spinner';
 
 export default function FeaturedProducts() {
 
-    let [products, setProducts] = useState([]);
-    let [isLoading, setLoading] = useState(true);
+    // let [products, setProducts] = useState([]);
+    // let [isLoading, setLoading] = useState(true);
 
 
-    async function getProducts() {
-        let { data } = await axios.get('https://route-ecommerce.onrender.com/api/v1/products')
-        setProducts(data.data)
-        setLoading(false)
-    }
+    // async function getProducts() {
+    //     let { data } = await axios.get('https://route-ecommerce.onrender.com/api/v1/products')
+    //     setProducts(data.data)
+    //     setLoading(false)
+    // }
 
-    useEffect(() => {
-        getProducts();
-    }, [])
+    // useEffect(() => {
+    //     getProducts();
+    // }, [])
 
 
     return <>
