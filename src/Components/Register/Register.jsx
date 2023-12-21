@@ -1,6 +1,8 @@
+import axios, { Axios } from 'axios';
 import { Formik, useFormik } from 'formik';
 import react from 'react';
 import * as Yup from 'yup';
+
 
 export default function Register() {
 
@@ -56,8 +58,10 @@ export default function Register() {
             rePassword: Yup.string().oneOf([Yup.ref('password')], 'Passwords must match').required('Confirm Password is required')
         });
 
-    function submitRegister(values) {
-        console.log(values);
+    async function submitRegister(values) {
+        let {data} = await axios.post(`https://route-ecommerce.onrender.com/api/v1/auth/signup`, values)
+        
+        console.log({data});
     }
 
     let formik = useFormik({
