@@ -23,15 +23,19 @@ export default function FeaturedProducts() {
     return <>
         <div className="container py-5">
 
-            {isLoading ? <Circles
-                height="80"
-                width="80"
-                color="#4fa94d"
-                ariaLabel="circles-loading"
-                wrapperStyle={{}}
-                wrapperClass=""
-                visible={true}
-            />
+            {isLoading ?
+                <div className="d-flex align-items-center justify-content-center">
+                    <Circles
+                        height="80"
+                        width="80"
+                        color="#4fa94d"
+                        ariaLabel="circles-loading"
+                        wrapperStyle={{}}
+                        wrapperClass=""
+                        visible={true}
+                    />
+                </div>
+
                 : <div className="row">
                     {products.map((ele) => <div className="col-md-2">
                         <div className="product p-3">
