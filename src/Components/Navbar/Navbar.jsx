@@ -1,11 +1,11 @@
 import react, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import image from '../../Assets/images/freshcart-logo.svg';
-import {UserContext}  from '../Context/UserContext';
+import {userContext}  from '../Context/UserContext';
 
 export default function Navbar() {
 
-    let { userToken, setUserToken } = useContext(UserContext);
+    let { userToken, setUserToken } = useContext(userContext);
     let navigate = useNavigate();
 
     function logOut() {

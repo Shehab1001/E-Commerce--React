@@ -5,11 +5,11 @@ import react, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
 import { Audio } from 'react-loader-spinner'
-import { UserContext } from '../Context/UserContext';
+import { userContext } from '../Context/UserContext';
 
 export default function Login() {
 
-    let {setUserToken} = useContext(UserContext);
+    let {setUserToken} = useContext(userContext);
     const [error, setError] = useState(null);
     const [isLoading, setLoading] = useState(false);
     let navigate = useNavigate();

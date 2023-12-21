@@ -10,10 +10,10 @@ import Brands from './Components/Brands/Brands'
 import Cart from './Components/Cart/Cart'
 import NotFound from './Components/NotFound/NotFound'
 import Categories from './Components/Categories/Categories'
-import { UserContext } from "./Components/Context/UserContext";
+import { userContext } from "./Components/Context/UserContext";
 import ProtectedRouter from "./Components/protectedRouter/protectedRouter";
 import ProductDetails from "./Components/ProductDetails/ProductDetails";
-
+import CartContextProvider from "./Components/Context/CartContext";
 
 export default function App() {
 
@@ -36,7 +36,7 @@ export default function App() {
   ]);
 
 
-  let { setUserToken } = useContext(UserContext);
+  let { setUserToken } = useContext(userContext);
 
   useEffect(() => {
     if (localStorage.getItem('userToken') !== null) {
@@ -45,7 +45,10 @@ export default function App() {
   })
 
   return <>
-    <RouterProvider router={router}></RouterProvider>
+  <CartContextProvider>
+  <RouterProvider router={router}></RouterProvider>
+  </CartContextProvider>
+
   </>;
 
 
