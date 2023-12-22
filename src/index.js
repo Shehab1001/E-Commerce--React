@@ -20,7 +20,7 @@ root.render(
         <UserContextProvider>
             <App />
         </UserContextProvider>
-        <ReactQueryDevtools initialIsOpen='false' position='bottom-left'/>
+        <ReactQueryDevtools initialIsOpen='false' position='bottom-right'/>
     </QueryClientProvider>
 
 );
